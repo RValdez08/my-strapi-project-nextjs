@@ -10,8 +10,9 @@ const cookieConfig = {
     maxAge: 60*60*24*7,
     path: '/',
     httpOnly: true,
-    domain: process.env.HOST ?? 'localhost',
+    // domain: process.env.HOST ?? 'localhost',
     secure: process.env.NODE_ENV === 'production',
+    sameSite: 'lax' as const,
 }
 export async function registerUserAction(prevState: FormState,formdata: FormData): Promise<FormState>{
     console.log(`Hola desde la accion para el registro de usuarios`)
